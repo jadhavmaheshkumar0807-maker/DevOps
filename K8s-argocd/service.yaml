@@ -1,0 +1,17 @@
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chinna-lb-svc
+  labels:
+    app: chinna-deploy
+    env: Deployment
+spec:
+  type: LoadBalancer
+  selector:
+    app: chinna-deploy-app
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
