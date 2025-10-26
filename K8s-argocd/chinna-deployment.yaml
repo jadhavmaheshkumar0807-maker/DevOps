@@ -1,0 +1,32 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chinna-deploy
+  labels:
+    app: chinna-deploy-app
+    env: Deployment
+
+spec:
+  selector:
+    matchLabels:
+      app: chinna-deploy-app
+  replicas: 4
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+
+  template:
+    metadata:
+      name: chinna-deploy-pod
+      labels:
+        app: chinna-deploy-app
+        env: Deployment
+        version: v1_AC
+    spec:
+      containers:
+        - name: chinna-deploy-pod-cont
+          image: maheshkumar010/maheshrepo:tomcat
