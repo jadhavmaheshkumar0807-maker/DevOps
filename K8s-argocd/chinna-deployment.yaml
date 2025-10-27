@@ -24,4 +24,4 @@ spec:
     spec:
       containers:
         - name: chinna-deploy-pod-cont
-          image: maheshkumar010/maheshrepo:tomcat
+          image: maheshkumar010/maheshrepo:24
